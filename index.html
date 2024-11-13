@@ -1,62 +1,115 @@
 <!DOCTYPE html>
 <html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mi Sitio Web</title>
-    <!-- Meta descripción para SEO -->
-    <meta name="description" content="Este es un sitio de ejemplo para practicar SEO, rendimiento y seguridad.">
-    <link rel="stylesheet" href="styles.css">
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Servicios de Desarrollo Web y Marketing Digital | Mi Sitio Web</title>
+    <!-- Meta tags optimizados para SEO -->
+    <meta name="description" content="Expertos en desarrollo web, SEO y marketing digital. Ofrecemos soluciones personalizadas para hacer crecer tu negocio online. ¡Contáctanos hoy!" />
+    <meta name="keywords" content="desarrollo web, SEO, marketing digital, optimización web, diseño web" />
+    <meta name="author" content="Mi Sitio Web" />
+    <meta name="robots" content="index, follow" />
+    <!-- Open Graph para redes sociales -->
+    <meta property="og:title" content="Servicios de Desarrollo Web y Marketing Digital" />
+    <meta property="og:description" content="Expertos en desarrollo web, SEO y marketing digital. Soluciones personalizadas para tu negocio." />
+    <meta property="og:type" content="website" />
+    <!-- Seguridad -->
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline';">
+    <!-- Precargar recursos críticos -->
+    <link rel="preload" href="styles.css" as="style" />
+    <link rel="preload" href="script.js" as="script" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
     <header>
-        <h1>Bienvenido a Mi Sitio Web</h1>
-        <nav>
-            <ul>
-                <li><a href="#about">Acerca de</a></li>
-                <li><a href="#services">Servicios</a></li>
-                <li><a href="#contact">Contacto</a></li>
-            </ul>
-        </nav>
+      <h1>Desarrollo Web y Marketing Digital Profesional</h1>
+      <nav aria-label="Navegación principal">
+        <ul>
+          <li><a href="#about" rel="noopener">Acerca de</a></li>
+          <li><a href="#services" rel="noopener">Servicios</a></li>
+          <li><a href="#contact" rel="noopener">Contacto</a></li>
+        </ul>
+      </nav>
     </header>
 
     <main>
-        <section id="about">
-            <h2>Acerca de Nosotros</h2>
-            <p>Somos una empresa dedicada a brindar servicios de calidad en el área de desarrollo web y marketing digital.</p>
-            <img src="images/about.jpg" alt="Imagen de nosotros" loading="lazy">
-        </section>
+      <section id="about" aria-label="Acerca de nosotros">
+        <h2>Expertos en Desarrollo Web</h2>
+        <p>
+          Somos líderes en desarrollo web y marketing digital, con más de 10 años
+          de experiencia creando soluciones digitales efectivas para empresas.
+        </p>
+        <picture>
+          <source srcset="images/about-small.webp" media="(max-width: 600px)" />
+          <source srcset="images/about.webp" />
+          <img 
+            src="images/about.jpg" 
+            alt="Equipo de desarrollo trabajando en soluciones web" 
+            loading="lazy"
+            width="800"
+            height="400"
+          />
+        </picture>
+      </section>
 
-        <section id="services">
-            <h2>Nuestros Servicios</h2>
-            <ul>
-                <li>Desarrollo Web</li>
-                <li>Optimización SEO</li>
-                <li>Marketing Digital</li>
-            </ul>
-        </section>
+      <section id="services" aria-label="Nuestros servicios">
+        <h2>Servicios Profesionales</h2>
+        <ul>
+          <li><strong>Desarrollo Web</strong> - Sitios web responsivos y optimizados</li>
+          <li><strong>Optimización SEO</strong> - Mejora tu visibilidad en buscadores</li>
+          <li><strong>Marketing Digital</strong> - Estrategias efectivas de promoción</li>
+        </ul>
+      </section>
 
-        <section id="contact">
-            <h2>Contacto</h2>
-            <form>
-                <label for="name">Nombre:</label>
-                <input type="text" id="name" name="name" required>
+      <section id="contact" aria-label="Formulario de contacto">
+        <h2>Contacta con Nosotros</h2>
+        <form id="contactForm" novalidate>
+          <div class="form-group">
+            <label for="name">Nombre:</label>
+            <input 
+              type="text" 
+              id="name" 
+              name="name" 
+              required 
+              pattern="[A-Za-zÀ-ÿ\s]{2,50}"
+              maxlength="50"
+              autocomplete="name"
+            />
+          </div>
 
-                <label for="email">Correo Electrónico:</label>
-                <input type="email" id="email" name="email" required>
+          <div class="form-group">
+            <label for="email">Correo Electrónico:</label>
+            <input 
+              type="email" 
+              id="email" 
+              name="email" 
+              required
+              pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
+              autocomplete="email"
+            />
+          </div>
 
-                <label for="message">Mensaje:</label>
-                <textarea id="message" name="message" required></textarea>
+          <div class="form-group">
+            <label for="message">Mensaje:</label>
+            <textarea 
+              id="message" 
+              name="message" 
+              required
+              maxlength="500"
+            ></textarea>
+          </div>
 
-                <button type="submit">Enviar</button>
-            </form>
-        </section>
+          <div id="formErrors" class="error-messages" aria-live="polite"></div>
+          
+          <button type="submit" class="submit-btn">Enviar Mensaje</button>
+        </form>
+      </section>
     </main>
 
     <footer>
-        <p>&copy; 2024 Mi Sitio Web. Todos los derechos reservados.</p>
+      <p>&copy; 2024 Mi Sitio Web. Todos los derechos reservados.</p>
     </footer>
 
-    <script src="script.js"></script>
-</body>
+    <script src="script.js" defer></script>
+  </body>
 </html>
